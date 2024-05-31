@@ -1,0 +1,36 @@
+<mat-card>
+  <h1>Kontrollera personnummer eller organisationsnummer</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p>Personnummer: xxxxxxxx-xxxx el. xxxxxxxxxxxx</p>
+    <p>Organisationsnummer: xxxxxx-xxxx el. xxxxxxxxxx</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Personnummer eller organisationsnummer</mat-label>
+      <input matInput formControlName="inputField" />
+
+      @if(validationResult && validationResult.isValid === false){
+      <mat-error>
+        Personnummer(xxxxxxxx-xxxx), Org.Nummer(xxxxxx-xxxx)
+      </mat-error>
+      }
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Kontrollera</button>
+  </form>
+  @if(validationResult){
+  <pre>
+      Vad som skrivits: {{ validationResult.currentValue }}
+     
+      Normaliserat värde: {{
+      validationResult.normalizedValue.length > 0
+        ? validationResult.normalizedValue
+        : "Går ej att normalisera" }}
+   
+      Godkänt: {{ validationResult.isValid ? "Ja" : "Nej" }}
+   
+      Är det ett organisationsnummer? {{ validationResult.isOrganisation ? "Ja" : "Nej" }}
+    
+      Är det ett personnummer? {{ validationResult.isPerson ? "Ja" : "Nej" }}
+   
+      Meddelande: {{ validationResult.message }}
+  </pre>
+  }
+</mat-card>
