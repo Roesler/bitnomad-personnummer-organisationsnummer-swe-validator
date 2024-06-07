@@ -1,3 +1,14 @@
+// https://gist.github.com/timbophillips/455ac41659fddcd774c5550650665b66
+// for npm roboto-fontface package (to load local files)
+$roboto-font-path: "roboto-fontface/fonts" !default;
+@import "../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface.scss";
+
+
+// for npm material-icons package (to load local files)
+$material-icons-font-path: 'material-icons/iconfont/';
+@import '../node_modules/material-icons/iconfont/material-icons.scss';
+
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
