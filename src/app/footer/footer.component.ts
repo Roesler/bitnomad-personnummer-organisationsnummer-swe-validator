@@ -9,4 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, MatIconModule]
 })
-export class FooterComponent { }
+export class FooterComponent {
+  imageUrl: string = '@assets/icons/github-mark.png';
+
+ }
